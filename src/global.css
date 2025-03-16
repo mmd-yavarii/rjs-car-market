@@ -1,0 +1,51 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --text-color: #2d2d2d;
+  --background-color: #ffffff;
+  --backgroundd-color2: #f8f8f8;
+  --border-color: #c7c7c7;
+
+  --backgroundd-them-color: #e5ebfc;
+  --backgroundd-error-color: #ffd9e2;
+  --them-color: #004cff;
+  --error-color: #fb2c5f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: default;
+}
+
+body {
+  max-width: 1000px;
+  margin: auto;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  font-size: 1em;
+  font-family: inherit;
+}
+
+.active {
+  color: var(--them-color);
+}
+
+@media (min-width: 900px) {
+  button,
+  a {
+    cursor: pointer;
+  }
+}
