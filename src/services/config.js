@@ -9,4 +9,13 @@ API.interceptors.response.use(
   (error) => Promise.reject(error.message)
 );
 
+API.interceptors.request.use(
+  (request) => {
+    // request.token = token;
+    // request.role = password == 'admin' ? 'admin' : 'user';
+    return request;
+  },
+  (error) => Promise.reject(error.message)
+);
+
 export default API;
