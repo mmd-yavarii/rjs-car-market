@@ -6,6 +6,7 @@ import Profile from './pages/Profile';
 import PageNotFound from './pages/404';
 import AdminPanel from './pages/AdminPanel';
 import Layout from './Layout/Layout';
+import Alert, { useAlert } from './components/Alert/Alert';
 
 function App() {
   const islogin = false;

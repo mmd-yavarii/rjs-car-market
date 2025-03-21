@@ -1,0 +1,30 @@
+.container,
+.error {
+  padding: 0.6em;
+  border-radius: 10px;
+  display: flex;
+  gap: 1em;
+  position: fixed;
+  top: 1em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 330px;
+  z-index: 3;
+  animation: alert 0.2s ease-in;
+}
+
+@keyframes alert {
+  0% {
+    opacity: 0;
+  }
+}
+
+.error {
+  background-color: var(--backgroundd-error-color);
+  color: var(--error-color);
+}
+.container {
+  background-color: var(--backgroundd-them-color);
+  color: var(--them-color);
+}
