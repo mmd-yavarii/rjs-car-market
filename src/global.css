@@ -5,7 +5,7 @@
 
   --text-color: #2d2d2d;
   --background-color: #ffffff;
-  --backgroundd-color2: #f8f8f8;
+  --backgroundd-color2: #efefef;
   --border-color: #c7c7c7;
   --backgroundd-them-color: #e5ebfc;
   --backgroundd-error-color: #ffd9e2;
@@ -18,6 +18,8 @@
   padding: 0;
   box-sizing: border-box;
   font-weight: 500;
+  outline: none;
+  border: none;
 }
 
 a {
