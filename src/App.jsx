@@ -6,10 +6,13 @@ import Profile from './pages/Profile';
 import PageNotFound from './pages/404';
 import AdminPanel from './pages/AdminPanel';
 import Layout from './Layout/Layout';
-import Alert, { useAlert } from './components/Alert/Alert';
+import Bookmarks from './pages/Bookmarks';
+import AddNewAds from './pages/AddNewAds';
+import MyAds from './pages/MyAds';
 
 function App() {
-  const islogin = false;
+  const islogin = true;
+  const isAdmin = false;
 
   return (
     <Layout>
@@ -18,9 +21,12 @@ function App() {
         <Route path="/car/:id" element={<CarDetail />} />
         <Route path="/login" element={!islogin ? <Login /> : <Navigate to="/" replace={true} />} />
 
-        <Route path="/profile" element={islogin ? <Profile /> : <Navigate to="/login" replace={true} />}>
-          <Route path="admin" element={true ? <AdminPanel /> : <Navigate to="/profile" replace={true} />} />
-        </Route>
+        <Route path="/bookmarks" element={islogin ? <Bookmarks /> : <Navigate to="/login" replace={true} />} />
+        <Route path="/add" element={islogin ? <AddNewAds /> : <Navigate to="/login" replace={true} />} />
+        <Route path="/myads" element={islogin ? <MyAds /> : <Navigate to="/login" replace={true} />} />
+
+        <Route path="/profile" element={islogin ? <Profile isAdmin={isAdmin} /> : <Navigate to="/login" replace={true} />} />
+        <Route path="/admin" element={true ? <AdminPanel /> : <Navigate to="/profile" replace={true} />} />
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
