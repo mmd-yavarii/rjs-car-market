@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2em;
+  opacity: 0.5;
+}
+.container h4 {
+  font-weight: 900;
+  margin-top: 0.5em;
+}

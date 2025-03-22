@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 1em;
+  padding-right: 0;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.filters {
+  margin-right: 1.5em;
+  background-color: transparent;
+  opacity: 0.5;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+.filterSelected {
+  color: var(--them-color);
+  text-transform: capitalize;
+  display: inline-block;
+  margin-right: 1.5em;
+  background-color: transparent;
+}

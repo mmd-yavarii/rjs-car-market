@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  margin: 0.5em;
+  align-items: center;
+  gap: 0.1em;
+  height: 2.5em;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.container input {
+  width: 100%;
+  padding: 1em;
+  height: 100%;
+  background-color: var(--backgroundd-color2);
+}
+
+.container button {
+  background-color: var(--backgroundd-color2);
+  height: 100%;
+  width: 2.5em;
+}

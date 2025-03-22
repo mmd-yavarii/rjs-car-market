@@ -1,0 +1,25 @@
+/* cars */
+.car {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid var(--border-color);
+  padding: 0.5em;
+}
+.car img {
+  width: 150px;
+  border-radius: 10px;
+}
+
+.carInfo {
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.yearAndLocation {
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+.name {
+  font-weight: 700;
+}
