@@ -12,7 +12,9 @@
   margin-bottom: 1em;
   display: flex;
   align-items: center;
-  gap: 1em;
+  justify-content: space-between;
+  border: 0.5px solid var(--border-color);
+  gap: 0.5em;
 }
 .name button {
   background-color: transparent;
@@ -39,10 +41,6 @@
 .name,
 .info {
   padding: 0.5em 1em;
-}
-
-.moreDescripttion {
-  border-top: 0.5px solid var(--border-color);
 }
 
 .moreDescripttion * {

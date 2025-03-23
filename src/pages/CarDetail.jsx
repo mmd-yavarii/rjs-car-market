@@ -10,11 +10,14 @@ import { IoCarSportOutline } from 'react-icons/io5';
 import { MdOutlineDateRange } from 'react-icons/md';
 import { GrLocation } from 'react-icons/gr';
 import { IoBookmarkOutline, IoBookmark } from 'react-icons/io5';
+import { useBookmark } from '../context/BookmarkProvider';
 
 function CarDetail() {
   const { state: info } = useLocation();
-  const { image, name, model, year, distance, location, price, category, description } = info;
+  const { id, image, name, model, year, distance, location, price, category, description } = info;
 
+  const [bookmark, dispatchBookmarks] = useBookmark();
+  const isBookmark = bookmark.some((i) => i.id == id);
   const [moreDescripttion, setMoreDescripttion] = useState({ show: true, text: shorterText(description) });
 
   // show more descripion
@@ -22,18 +25,15 @@ function CarDetail() {
     setMoreDescripttion({ show: false, text: description });
   }
 
+  // add to bookmark or remove from bookmark s
+  function bookmarkHandler(type) {
+    dispatchBookmarks({ type: type, payload: info });
+  }
+
   return (
     <>
       <div className={styles.container}>
         <img src={image} alt={model} />
-
-        <div className={styles.name}>
-          <p>
-            {name} {model}
-          </p>
-
-          <button>{true ? <IoBookmark /> : <IoBookmarkOutline />}</button>
-        </div>
 
         <div className={styles.info}>
           <p>
@@ -68,6 +68,17 @@ function CarDetail() {
           </p>
         </div>
       </div>
+
+      <div className={styles.name}>
+        <p>
+          {name} {model}
+        </p>
+
+        <button onClick={() => bookmarkHandler(isBookmark ? 'REMOVE_ITEM' : 'ADD_ITEM')}>
+          {isBookmark ? <IoBookmark /> : <IoBookmarkOutline />}
+        </button>
+      </div>
+
       <div className={styles.moreDescripttion}>
         <p>{moreDescripttion.text}</p>
         {moreDescripttion.show && <button onClick={outMoreHandler}> more... </button>}
