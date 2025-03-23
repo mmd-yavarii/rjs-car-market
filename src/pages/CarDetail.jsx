@@ -75,7 +75,7 @@ function CarDetail() {
         </p>
 
         <button onClick={() => bookmarkHandler(isBookmark ? 'REMOVE_ITEM' : 'ADD_ITEM')}>
-          {isBookmark ? <IoBookmark /> : <IoBookmarkOutline />}
+          {isBookmark ? <IoBookmark fontSize="1.5rem" /> : <IoBookmarkOutline fontSize="1.5rem" />}
         </button>
       </div>
 

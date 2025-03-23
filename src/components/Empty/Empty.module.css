@@ -5,8 +5,12 @@
   flex-direction: column;
   margin: 2em;
   opacity: 0.5;
+  text-align: center;
 }
 .container h4 {
   font-weight: 900;
   margin-top: 0.5em;
+}
+.container p {
+  width: 260px;
 }

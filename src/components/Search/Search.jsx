@@ -10,7 +10,7 @@ function Search() {
 
   // query handler
   function searchHandler() {
-    if (inpValue.current.length) {
+    if (inpValue.current) {
       const urlSearchParams = new URLSearchParams(query);
       urlSearchParams.set('search', inpValue.current);
       setQuery(urlSearchParams, { replace: true });
