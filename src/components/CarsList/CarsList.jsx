@@ -22,7 +22,7 @@ function Card({ info }) {
   const { id, image, name, model, year, location, price } = info;
 
   return (
-    <Link to={`/car/${id}`}>
+    <Link to={`/car/${id}`} state={info}>
       <div className={styles.car}>
         <img src={image} alt={model} />
 
