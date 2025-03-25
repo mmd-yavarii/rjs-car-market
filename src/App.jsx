@@ -11,7 +11,7 @@ import AddNewAds from './pages/AddNewAds';
 import MyAds from './pages/MyAds';
 
 function App() {
-  const islogin = true;
+  const islogin = false;
   const isAdmin = false;
 
   return (

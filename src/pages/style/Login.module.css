@@ -1,0 +1,45 @@
+.form {
+  padding: 1em;
+  max-width: 360px;
+  margin: 0 auto;
+  margin-top: 6em;
+}
+.form span {
+  font-size: 0.7rem;
+  margin: 2em 0;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+.submit {
+  background-color: var(--them-color);
+  color: #fff;
+  width: 100%;
+  border-radius: 10px;
+  height: 2.5em;
+}
+
+.input {
+  background-color: var(--backgroundd-color2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 2.5em;
+  max-height: 2.5em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  padding: 0 1em;
+}
+
+.input input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.input button {
+  height: 100%;
+  background-color: transparent;
+  opacity: 0.6;
+}

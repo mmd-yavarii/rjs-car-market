@@ -1,6 +1,7 @@
 import React from 'react';
 import { useBookmark } from '../context/BookmarkProvider';
 import Empty from '../components/Empty/Empty';
+import CarsList from '../components/CarsList/CarsList';
 
 function Bookmarks() {
   const [bookmark, dispatchBookmarks] = useBookmark();
@@ -8,13 +9,11 @@ function Bookmarks() {
   if (bookmark.length) {
     return (
       <>
-        <div>
-          {bookmark.map((i) => (
-            <h1 key={i.id}>{i.name}</h1>
-          ))}
-        </div>
+        <CarsList carsData={bookmark} />
 
-        <button onClick={() => dispatchBookmarks({ type: 'CLEAR' })}>clear</button>
+        <button style={{ backgroundColor: 'transparent', color: 'red', padding: '1em' }} onClick={() => dispatchBookmarks({ type: 'CLEAR' })}>
+          clear
+        </button>
       </>
     );
   } else {
