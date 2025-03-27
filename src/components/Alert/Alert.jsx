@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './Alert.module.css';
 
 import { TbAlertSquareRounded } from 'react-icons/tb';
@@ -12,18 +11,15 @@ function Alert({ message, isError = false }) {
   );
 }
 
-function useAlert() {
-  const [alert, setAlert] = useState({ show: true });
-
-  setTimeout(() => {
-    setAlert({ show: false });
-  }, 2000);
-
-  return alert.show;
+function useAlertEffect(state, setState, newValue) {
+  let timeOut;
+  if (state) {
+    timeOut = setTimeout(() => setState(newValue), 3000);
+  }
+  return () => clearTimeout(timeOut);
 }
 
 export default Alert;
-export { useAlert };
+export { useAlertEffect };
 
-// const showAlert = useAlert();
-// {showAlert && <Alert message="hello this is an error alert message" isError={true} />}
+// useAlertEffect(alertData, setAlertData, false);
