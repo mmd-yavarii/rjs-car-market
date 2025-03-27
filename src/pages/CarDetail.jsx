@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import styles from './style/CarDetail.module.css';
 import { useState } from 'react';
@@ -12,7 +12,7 @@ import { GrLocation } from 'react-icons/gr';
 import { IoBookmarkOutline, IoBookmark } from 'react-icons/io5';
 import { useBookmark } from '../context/BookmarkProvider';
 
-function CarDetail() {
+function CarDetail({ isLogin }) {
   const { state: info } = useLocation();
   const { id, image, name, model, year, distance, location, price, category, description } = info;
 
@@ -74,9 +74,15 @@ function CarDetail() {
           {name} {model}
         </p>
 
-        <button onClick={() => bookmarkHandler(isBookmark ? 'REMOVE_ITEM' : 'ADD_ITEM')}>
-          {isBookmark ? <IoBookmark fontSize="1.5rem" /> : <IoBookmarkOutline fontSize="1.5rem" />}
-        </button>
+        {isLogin ? (
+          <button onClick={() => bookmarkHandler(isBookmark ? 'REMOVE_ITEM' : 'ADD_ITEM')}>
+            {isBookmark ? <IoBookmark fontSize="1.5rem" /> : <IoBookmarkOutline fontSize="1.5rem" />}
+          </button>
+        ) : (
+          <Link to="/login">
+            <IoBookmarkOutline fontSize="1.5rem" />
+          </Link>
+        )}
       </div>
 
       <div className={styles.moreDescripttion}>

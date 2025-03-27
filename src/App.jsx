@@ -18,7 +18,7 @@ function App() {
     <Layout>
       <Routes>
         <Route index element={<Explore />} />
-        <Route path="/car/:id" element={<CarDetail />} />
+        <Route path="/car/:id" element={<CarDetail isLogin={islogin} />} />
         <Route path="/login" element={!islogin ? <Login /> : <Navigate to="/" replace={true} />} />
 
         <Route path="/bookmarks" element={islogin ? <Bookmarks /> : <Navigate to="/login" replace={true} />} />

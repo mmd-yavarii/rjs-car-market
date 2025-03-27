@@ -11,6 +11,7 @@ function Login() {
 
   useEffect(() => usernameInp.current.focus(), []);
 
+  // submit form s
   function submitHandler() {
     console.log(username.current);
     console.log(password.current);
