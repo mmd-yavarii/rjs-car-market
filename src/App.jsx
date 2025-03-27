@@ -9,9 +9,11 @@ import Layout from './Layout/Layout';
 import Bookmarks from './pages/Bookmarks';
 import AddNewAds from './pages/AddNewAds';
 import MyAds from './pages/MyAds';
+import { useLogin } from './context/LoginProvider';
 
 function App() {
-  const islogin = false;
+  const [token, setToken] = useLogin();
+  const islogin = token.length;
   const isAdmin = false;
 
   return (

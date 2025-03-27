@@ -6,14 +6,18 @@ import Alert, { useAlertEffect } from '../components/Alert/Alert';
 import axios from 'axios';
 import { auth } from '../services/apis.js';
 import { BeatLoader } from 'react-spinners';
+import { useNavigate } from 'react-router-dom';
+import { useLogin } from '../context/LoginProvider.jsx';
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const usernameInp = useRef();
-  const username = useRef('mor_2314');
-  const password = useRef('83r5^_');
+  const [username, setUsername] = useState('mor_2314');
+  const [password, setPassword] = useState('83r5^_');
   const [alertData, setAlertData] = useState({ isShow: false, isError: true, message: '' });
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const [token, setToken] = useLogin();
 
   useEffect(() => usernameInp.current.focus(), []);
 
@@ -23,19 +27,24 @@ function Login() {
 
   // submit form info
   function submitHandler() {
-    if (username.current && password.current) {
+    if (username && password) {
       setIsLoading(true);
       axios
         .post(auth, {
-          username: username.current,
-          password: password.current,
+          username: username,
+          password: password,
         })
         .then((res) => {
-          console.log('Token:', res.data.token);
+          setToken(res.data.token);
+          navigate('/', { replace: true });
           setAlertData({ isShow: true, isError: false, message: 'Login successfuly' });
         })
         .catch((error) => {
-          setAlertData({ isShow: true, isError: true, message: error.message });
+          setAlertData({
+            isShow: true,
+            isError: true,
+            message: error.message == 'Request failed with status code 401' ? 'user is not valied' : error.message,
+          });
         })
         .finally(() => setIsLoading(false));
     } else {
@@ -48,19 +57,12 @@ function Login() {
       {alertData.isShow && <Alert message={alertData.message} isError={alertData.isError} />}
 
       <div className={styles.form}>
-        <span>enter "admin" for password to be an admin</span>
-
         <div className={styles.input}>
-          <input type="text" value={username.current} placeholder="email" ref={usernameInp} onChange={(e) => (username.current = e.target.value)} />
+          <input type="text" value={username} placeholder="email" ref={usernameInp} onChange={(e) => setUsername(e.target.value)} />
         </div>
 
         <div className={styles.input}>
-          <input
-            type={showPassword ? 'text' : 'password'}
-            value={password.current}
-            placeholder="password"
-            onChange={(e) => (password.current = e.target.value)}
-          />
+          <input type={showPassword ? 'text' : 'password'} value={password} placeholder="password" onChange={(e) => setPassword(e.target.value)} />
           <button onClick={() => setShowPassword((prev) => !prev)}>{showPassword ? <LiaEyeSlash /> : <LiaEyeSolid />}</button>
         </div>
 
